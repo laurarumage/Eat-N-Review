@@ -12,7 +12,6 @@ Site visitors not logged-in can browse featured restaurants and restaurant revie
 
 Logged-in users can add new restaurants to the site and review each restaurant once.
 
-![Screenshot of adding a restaurant](/readme-images/add-restaurant.png "Screenshot: Add restaurant")
 ![Screenshot of adding a review](/readme-images/add-review.png "Screenshot: Add review")
 
 ## Getting Started
