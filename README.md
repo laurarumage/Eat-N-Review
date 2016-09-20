@@ -1,6 +1,6 @@
-# eat-n-review
+# Eat N' Review
 
-Eat N' Review is a website for reviewing restaurants.
+A website for reviewing restaurants.
 
 ## Preview
 
