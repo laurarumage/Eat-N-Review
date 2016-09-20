@@ -1,0 +1,16 @@
+<h1>Register</h1>
+
+<% if @user.errors.any? %>
+<div class="errors">
+<%= erb :"_errors", locals: {error_messages: @user.errors.full_messages } %>
+</div>
+<% end %>
+
+<form action="/users" method="post">
+  <input class="block" type="text" name="user[email]" placeholder="email">
+  <input class="block" type="text" name="user[username]" placeholder="username">
+  <input class="block" type="password" name="user[password]" placeholder="password">
+  <input class="block" type="submit" value="Register">
+</form>
+
+<p>Already a user? <a href="/sessions/new">Login here.</a></p>

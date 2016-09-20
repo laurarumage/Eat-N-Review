@@ -1,0 +1,61 @@
+<h2 class="restaurant-header"><%= @restaurant.name %></h2>
+
+<div class="restaurant-details">
+  <p>Cuisine: <%= @restaurant.cuisine %></p>
+  <p><%= @restaurant.address %> | <%= @restaurant.city %>, <%= @restaurant.state %> <%= @restaurant.zip_code %>
+
+  <% if logged_in? && @restaurant.creator_id == current_user.id %>
+    <div class="creator-links"><a href="/restaurants/<%= "#{@restaurant.id}" %>/edit">edit</a> |
+    <form class="inline" action="/restaurants/<%= "#{@restaurant.id}" %>" method="post"><input type="hidden" name="_method" value="delete"><input class="delete" type="submit" value="delete"></form></div>
+  <% end %>
+</div>
+
+<div class="reviews">
+  <h3>Reviews</h3>
+  <% if @restaurant.reviews.length > 0 %>
+    <p>Average Rating: <%= @restaurant.average_rating %></p>
+    <% @restaurant.reviews.each do |review| %>
+    <p><%= review.body %><p>
+    <p>- <%= review.customer.username %></p>
+    <% end %>
+  <% else %>
+    <p>This restaurant has no reviews.</p>
+  <% end %>
+</div>
+
+<div class="new-review">
+  <h3>Leave a Review</h3>
+  <% if @review && @review.errors.any? %>
+  <div class="errors">
+  <%= erb :"_errors", locals: {error_messages: @review.errors.full_messages } %>
+  </div>
+  <% end %>
+
+  <% if logged_in? %>
+    <% if !current_user.reviewed?(@restaurant) %>
+      <form action="/restaurants/<%= "#{@restaurant.id}" %>/reviews" method="post" id="new-review">
+        Rating:
+        <select name="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" selected>5</option>
+        </select>
+        <label class="block">Review:</label>
+        <input class="block" type="text" name="body">
+        <input type="submit" value="Add Review">
+      </form>
+    <% else %>
+      <% if @message %>
+      <%= @message %>
+      <% end %>
+      <p class="italics">You have reviewed this restaurant.</p>
+    <% end %>
+  <% else %>
+    <p>You must be logged in to leave a review.<p>
+    <p><a href="/sessions/new">Log in</a></p>
+  <% end %>
+</div>
+
+<p><a href="/">Home</a></p>

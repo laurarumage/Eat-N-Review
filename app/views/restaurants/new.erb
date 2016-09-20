@@ -1,0 +1,22 @@
+<h2>Enter Restaurant Details</h2>
+
+<% if @restaurant.errors.any? %>
+<div class="errors">
+<%= erb :"_errors", locals: {error_messages: @restaurant.errors.full_messages } %>
+</div>
+<% end %>
+
+<% if @message %>
+<div class="errors">
+  <%= @message %>
+<% end %>
+
+<form action="/restaurants" method="post">
+  <input class="block" type="text" placeholder="name" name="restaurant[name]">
+  <input class="block" type="text" placeholder="cuisine" name="restaurant[cuisine]">
+  <input class="block" type="text" placeholder="address" name="restaurant[address]">
+  <input class="block" type="text" placeholder="city" name="restaurant[city]">
+  <input class="block" type="text" placeholder="state" name="restaurant[state]">
+  <input class="block" type="text" placeholder="zip code" name="restaurant[zip_code]">
+  <input type="submit" value="Save Restaurant">
+</form>

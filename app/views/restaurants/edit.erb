@@ -1,0 +1,12 @@
+<h2>Edit Restaurant Details</h2>
+
+<form action="/restaurants/<%= @restaurant.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input class="block" type="text" value="<%= @restaurant.name %>" name="restaurant[name]">
+  <input class="block" type="text" value="<%= @restaurant.cuisine %>" name="restaurant[cuisine]">
+  <input class="block" type="text" value="<%= @restaurant.address %>" name="restaurant[address]">
+  <input class="block" type="text" value="<%= @restaurant.city %>" name="restaurant[city]">
+  <input class="block" type="text" value="<%= @restaurant.state %>" name="restaurant[state]">
+  <input class="block" type="text" value="<%= @restaurant.zip_code %>" name="restaurant[zip_code]">
+  <input type="submit" value="Update Restaurant">
+</form>

@@ -1,0 +1,21 @@
+<h2>Restaurants</h2>
+
+<% if logged_in? %>
+<p><a id="add-restaurant" href="/restaurants/new">Add Restaurant</a></p>
+<% end %>
+
+<% @restaurants.each do |restaurant| %>
+  <div class="restaurants-list">
+    <a class="restaurant-name" href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a>
+    <%= restaurant.city %>, <%= restaurant.state %>
+
+    <% if logged_in? %>
+      <% if restaurant.creator_id == current_user.id %>
+      <div class="creator-links">
+      <a href="/restaurants/<%= "#{restaurant.id}" %>/edit">edit</a> |
+      <form class="inline" action="/restaurants/<%= "#{restaurant.id}" %>" method="post"><input type="hidden" name="_method" value="delete"><input class="delete" type="submit" value="delete"></form>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
