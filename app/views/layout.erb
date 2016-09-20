@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title></title>
+</head>
+<nav>
+  <ul>
+    <% if session[:user_id] == nil %>
+    <li><a href="/sessions/new">Login</a></li> |
+    <li><a href="/users/new">Register</a></li>
+    <% else %>
+    <% @user = User.find(session[:user_id]) %>
+    <li><%= @user.username %></li> |
+    <li><a href="/logout">Logout</a></li>
+    <% end %>
+  </ul>
+</nav>
+<body>
+  <h1 class="site-header"><a href="/">Eat N' Review</a></h1>
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>

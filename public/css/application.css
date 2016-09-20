@@ -1,0 +1,105 @@
+.container {
+  margin: 20px auto;
+  max-width: 90%;
+  padding: 0px 20px 20px 20px;
+  border: 2px dotted black;
+}
+
+nav {
+  text-align: right;
+
+}
+
+nav ul {
+  margin: 0px;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 15px;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.site-header, .site-header a {
+  font-size: 50px;
+  margin-left: 20px;
+  text-decoration: none;
+  color: darkorange;
+  font-family: 'Bungee Shade', cursive;
+}
+
+.errors {
+  color: red;
+  padding: 5px;
+}
+
+
+.delete {
+  display: inline-block;
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: blue;
+  padding: 0px;
+  text-decoration: underline;
+}
+
+.restaurants-list {
+  border: 1px solid turquoise;
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  vertical-align: top;
+}
+
+.restaurant-name {
+  color: hotpink;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.restaurant-header {
+  color: hotpink;
+  font-size: 35px;
+}
+
+#add-restaurant {
+  color: darkorange;
+}
+
+.new-review {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  padding: 10px;
+  border: 2px dashed darkorange;
+  float: right;
+}
+
+.reviews {
+  display: inline-block;
+  vertical-align: top;
+  width: 60%;
+
+}
+
+.italics {
+  font-style: italic;
+}
+
+.creator-links a, .creator-links input {
+  color: teal;
+}
+
+.restaurant-details {
+  margin: 30px;
+  line-height: 40%;
+}
